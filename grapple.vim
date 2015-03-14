@@ -3,7 +3,7 @@ nnoremap <silent> y :<C-U>call MarkAndSetOpfunc()<CR>g@
 nnoremap yy y_
 
 function! MarkAndSetOpfunc()
-    let g:save_cursor = getpos(".")
+    let s:save_cursor = getpos(".")
     set opfunc=YankAndJumpBack
 endfunction
 
@@ -17,5 +17,5 @@ function! YankAndJumpBack(type, ...)
     else
         silent exe "normal! `[v`]y"
     endif
-    call setpos('.', g:save_cursor)
+    call setpos('.', s:save_cursor)
 endfunction
