@@ -11,9 +11,7 @@ function! MarkAndSetOpfunc(operator)
 endfunction
 
 function! OperateAndJumpBack(type, ...)
-    if a:0
-        silent exe "normal! `<" . a:type . "`>" . s:operator
-    elseif a:type == 'line'
+    if a:type == 'line'
         silent exe "normal! '[V']" . s:operator
     elseif a:type == 'block'
         silent exe "normal! `[\<C-V>`]" . s:operator
