@@ -4,18 +4,19 @@ nnoremap yy y_
 
 function! MarkAndSetOpfunc()
     let s:save_cursor = getpos(".")
-    set opfunc=YankAndJumpBack
+    let s:operator = 'y'
+    set opfunc=OperateAndJumpBack
 endfunction
 
-function! YankAndJumpBack(type, ...)
+function! OperateAndJumpBack(type, ...)
     if a:0
-        silent exe "normal! `<" . a:type . "`>y"
+        silent exe "normal! `<" . a:type . "`>" . s:operator
     elseif a:type == 'line'
-        silent exe "normal! '[V']y"
+        silent exe "normal! '[V']" . s:operator
     elseif a:type == 'block'
-        silent exe "normal! `[\<C-V>`]y"
+        silent exe "normal! `[\<C-V>`]" . s:operator
     else
-        silent exe "normal! `[v`]y"
+        silent exe "normal! `[v`]" . s:operator
     endif
     call setpos('.', s:save_cursor)
 endfunction
