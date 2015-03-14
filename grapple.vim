@@ -1,10 +1,10 @@
-nnoremap <silent> y :<C-U>call MarkAndSetOpfunc()<CR>g@
+nnoremap <silent> y :<C-U>call MarkAndSetOpfunc('y')<CR>g@
 
 nnoremap yy y_
 
-function! MarkAndSetOpfunc()
+function! MarkAndSetOpfunc(operator)
+    let s:operator = a:operator
     let s:save_cursor = getpos(".")
-    let s:operator = 'y'
     set opfunc=OperateAndJumpBack
 endfunction
 
