@@ -1,5 +1,7 @@
 nnoremap <silent> y :<C-U>call MarkAndSetOpfunc()<CR>g@
 
+nnoremap yy y_
+
 function! MarkAndSetOpfunc()
     let g:save_cursor = getpos(".")
     set opfunc=YankAndJumpBack
