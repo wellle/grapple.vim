@@ -1,6 +1,8 @@
 nnoremap <silent> y :<C-U>call MarkAndSetOpfunc('y')<CR>g@
+nnoremap <silent> d :<C-U>call MarkAndSetOpfunc('d')<CR>g@
 
 nnoremap yy y_
+nnoremap dd d_
 
 function! MarkAndSetOpfunc(operator)
     let s:operator = a:operator
