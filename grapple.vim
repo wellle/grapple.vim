@@ -1,5 +1,6 @@
 nnoremap <silent> y :<C-U>call MarkAndSetOpfunc('y')<CR>g@
 nnoremap <silent> d :<C-U>call MarkAndSetOpfunc('d')<CR>g@
+nnoremap <silent> cx :<C-U>call MarkAndSetOpfunc('X')<CR>g@
 
 nnoremap yy y_
 nnoremap dd d_
