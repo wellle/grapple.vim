@@ -12,6 +12,9 @@ function! MarkAndSetOpfunc(operator)
 endfunction
 
 function! OperateAndJumpBack(type, ...)
+    let startBefore = getpos("'[")
+    let endBefore = string(getpos("']"))
+
     if a:type == 'line'
         silent exe "normal! '[V']"
     elseif a:type == 'block'
@@ -21,6 +24,9 @@ function! OperateAndJumpBack(type, ...)
     endif
 
     silent exe "normal " . s:operator
+
+    let startAfter = string(getpos("'["))
+    let endAfter = string(getpos("']"))
 
     call setpos('.', s:save_cursor)
 endfunction
