@@ -1,5 +1,5 @@
-nnoremap <silent> y :<C-U>call MarkAndSetOpfunc('y')<CR>g@
-nnoremap <silent> d :<C-U>call MarkAndSetOpfunc('d')<CR>g@
+nnoremap <silent> y  :<C-U>call MarkAndSetOpfunc('y')<CR>g@
+nnoremap <silent> d  :<C-U>call MarkAndSetOpfunc('d')<CR>g@
 nnoremap <silent> cx :<C-U>call MarkAndSetOpfunc('X')<CR>g@
 
 nnoremap yy y_
@@ -16,14 +16,14 @@ function! OperateAndJumpBack(type, ...)
     let endBefore = string(getpos("']"))
 
     if a:type == 'line'
-        silent exe "normal! '[V']"
+        silent execute "normal! '[V']"
     elseif a:type == 'block'
-        silent exe "normal! `[\<C-V>`]"
+        silent execute "normal! `[\<C-V>`]"
     else
-        silent exe "normal! `[v`]"
+        silent execute "normal! `[v`]"
     endif
 
-    silent exe "normal " . s:operator
+    silent execute "normal " . s:operator
 
     let startAfter = string(getpos("'["))
     let endAfter = string(getpos("']"))
