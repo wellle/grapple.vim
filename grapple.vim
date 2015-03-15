@@ -7,7 +7,7 @@ nnoremap dd d_
 
 function! MarkAndSetOpfunc(operator)
     let s:operator = a:operator
-    let s:save_cursor = getpos(".")
+    let s:cursorBefore = getpos(".")
     set opfunc=OperateAndJumpBack
 endfunction
 
@@ -28,5 +28,5 @@ function! OperateAndJumpBack(type, ...)
     let startAfter = string(getpos("'["))
     let endAfter = string(getpos("']"))
 
-    call setpos('.', s:save_cursor)
+    call setpos('.', s:cursorBefore)
 endfunction
