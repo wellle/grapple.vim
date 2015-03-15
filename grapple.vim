@@ -28,5 +28,7 @@ function! OperateAndJumpBack(type, ...)
     let startAfter = string(getpos("'["))
     let endAfter = string(getpos("']"))
 
+    " add curswant = col
+    call add(s:cursorBefore, s:cursorBefore[2])
     call setpos('.', s:cursorBefore)
 endfunction
