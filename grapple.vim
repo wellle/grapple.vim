@@ -1,17 +1,17 @@
-nnoremap <silent> y  :<C-U>call MarkAndSetOpfunc('y')<CR>g@
-nnoremap <silent> d  :<C-U>call MarkAndSetOpfunc('d')<CR>g@
-nnoremap <silent> cx :<C-U>call MarkAndSetOpfunc('X')<CR>g@
+nnoremap <silent> y  :<C-U>call grapple#hook('y')<CR>g@
+nnoremap <silent> d  :<C-U>call grapple#hook('d')<CR>g@
+nnoremap <silent> cx :<C-U>call grapple#hook('X')<CR>g@
 
 nnoremap yy y_
 nnoremap dd d_
 
-function! MarkAndSetOpfunc(operator)
+function! grapple#hook(operator)
     let s:operator = a:operator
     let s:cursorBefore = getpos(".")
-    set opfunc=OperateAndJumpBack
+    set opfunc=grapple#operate
 endfunction
 
-function! OperateAndJumpBack(type, ...)
+function! grapple#operate(type, ...)
     let startBefore = getpos("'[")
     let endBefore = string(getpos("']"))
 
