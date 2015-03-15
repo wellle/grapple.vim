@@ -13,11 +13,14 @@ endfunction
 
 function! OperateAndJumpBack(type, ...)
     if a:type == 'line'
-        silent exe "normal! '[V']" . s:operator
+        silent exe "normal! '[V']"
     elseif a:type == 'block'
-        silent exe "normal! `[\<C-V>`]" . s:operator
+        silent exe "normal! `[\<C-V>`]"
     else
-        silent exe "normal! `[v`]" . s:operator
+        silent exe "normal! `[v`]"
     endif
+
+    silent exe "normal " . s:operator
+
     call setpos('.', s:save_cursor)
 endfunction
